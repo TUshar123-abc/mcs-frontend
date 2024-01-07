@@ -36,6 +36,7 @@ const Membership = ({ isOpen, onClose }) => {
       plan: "",
       message: "",
     },
+    
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
