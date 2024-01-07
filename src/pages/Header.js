@@ -12,6 +12,10 @@ const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleButtonClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   const handleContactModel = ()=>{
         setcontactModelOpen(true)
   }
@@ -129,7 +133,7 @@ const handleAboutModel = ()=>{
               <button
                 className=""
                 style={{ fontWeight: "bold" }}
-                onClick={()=> handleMembershipModel()}
+                onClick={()=>{ handleMembershipModel(); handleButtonClick(); }}
               >
                 Membership
               </button>
@@ -162,7 +166,7 @@ const handleAboutModel = ()=>{
               <button
                 className=""
                 style={{ fontWeight: "bold" }}
-                onClick={()=> handleContactModel()}
+                onClick={()=> {handleContactModel() ; handleButtonClick(); }}
               >
                 Contact US
               </button>
@@ -170,7 +174,7 @@ const handleAboutModel = ()=>{
               <button
                 className=""
                 style={{ fontWeight: "bold" }}
-                onClick={()=> handleAboutModel()}
+                onClick={()=>{ handleAboutModel(); handleButtonClick(); }}
               >
                 About US
               </button>
