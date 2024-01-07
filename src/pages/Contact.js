@@ -53,7 +53,7 @@ const Contact = ({ isOpen, onClose }) => {
       try {
         setSubmitting(true);
         const response = await axios.post(
-          "http://localhost:8000/api/contact",
+          "https://mcstm.onrender.com/api/contact",
           values
         );
         setTimeout(() => {
