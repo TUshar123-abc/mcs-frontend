@@ -78,7 +78,7 @@ export default function Footer() {
           {/* <!-- TW Elements section --> */}
           <div className="">
             <h6
-              className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
+              className="mb-4 flex items-center justify-center  uppercase md:justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -224,11 +224,11 @@ export default function Footer() {
       <div className="p-6 text-center " style={{
         background: 'linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
       }}>
-        <span>© 2023 Copyright:</span>
+        <span>© 2023 Copyright: </span>
         <button
           className=""
           href="https://tw-elements.com/"
-        > Manasvi Technologies</button>
+        > Manvika Consultancy Services Pvt. Ltd</button>
       </div>
     </footer>
   );

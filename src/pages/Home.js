@@ -1,19 +1,27 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Button } from "flowbite-react";
 import MainSlider from "./MainSlider";
 import Footer from "./Footer";
 import Header from "./Header";
 import "./Hr.css";
 import "./Spinner.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import repair from "../assets/images/repair.jpg";
+import restaurant from "../assets/images/restaurant.jpg";
+import saloon from "../assets/images/saloon.jpg";
+import tiffin from "../assets/images/tiffin.png";
+import Travels from "../assets/images/travels.jpg";
 
 const Spinner = () => (
   <div>
     <div className="overlay">
-            <div className="loader">
-              <div className="loader-inner ball1"></div>
-              <div className="loader-inner ball2"></div>
-            </div>
-          </div>
+      <div className="loader">
+        <div className="loader-inner ball1"></div>
+        <div className="loader-inner ball2"></div>
+      </div>
+    </div>
   </div>
 );
 
@@ -290,7 +298,6 @@ const namkeenData = [
   },
 ];
 
-
 function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -303,28 +310,260 @@ function Home() {
     // Clear the timer if the component unmounts
     return () => clearTimeout(timer);
   }, []); // Empty dependency array to run the effect only once on mount
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000, // Slide transition duration in milliseconds
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000, // Autoplay interval in milliseconds
+  };
   return (
     <>
       <Header />
+
+      {/* sl;ider */}
+      <div >
+        <Slider {...settings} className="rounded-xl mt-[5.5rem] mb-0 mr-5 ml-5">
+          <div>
+            <img src={repair} alt="image 1" className=" w-auto object-cover" />
+          </div>
+          <div>
+            <img
+              src={restaurant}
+              alt="image 2"
+              className=" w-full object-cover"
+            />
+          </div>
+          <div>
+            <img src={tiffin} alt="image 3" className=" w-auto object-cover" />
+          </div>
+
+          <div>
+            <img src={saloon} alt="image 3" className=" w-auto object-cover" />
+          </div>
+          <div>
+            <img src={Travels} alt="image 3" className=" w-auto object-cover" />
+          </div>
+        </Slider>
+      </div>
       {loading ? (
-        <Spinner/>
-      ):(
+        <Spinner />
+      ) : (
         <div
-        style={{
-          overflowX: "hidden",
-          overflow: "hidden",
-          background: "silver",
-        }}
-      >
-        <div style={{ marginTop: "130px" }}>
+          style={{
+            overflowX: "hidden",
+            overflow: "hidden",
+            background: "white",
+          }}
+        >
+          <div style={{ marginTop: "50px" }}>
+            <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+              Tiffin Service
+            </h5>
+            <MainSlider>
+              {tiffinData.map((card, index) => (
+                <div key={index} className="mx-2">
+                  <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                    <img
+                      width={200}
+                      height={100}
+                      src={card.imageUrl}
+                      alt={card.altText}
+                      className="max-w-full h-40" // Set a fixed height
+                    />
+                    <div className="mt-4 text-center">
+                      <p className="font-normal text-gray-700 dark:text-gray-400">
+                        {card.description}
+                      </p>
+                      <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                        Book Now
+                      </Button>
+                    </div>
+                  </Card>
+                </div>
+              ))}
+            </MainSlider>
+          </div>
+
+          <div className="animated-line"></div>
+
           <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-            Tiffin Service
+            Saloon Service
           </h5>
           <MainSlider>
-            {tiffinData.map((card, index) => (
+            {saloonData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <img
+                    width={200}
+                    height={200}
+                    src={card.imageUrl}
+                    alt={card.altText}
+                    className="max-w-full h-40" // Set a fixed height
+                  />
+                  <div className="mt-4 text-center">
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                    <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                      Book Now
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </MainSlider>
+          <div className="animated-line"></div>
+
+          <h5 className="text-3xl text-center mt-5   mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+            Restaurant Service
+          </h5>
+          <MainSlider>
+            {restaurantData.map((card, index) => (
+              <div key={index} className="mx-2">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <img
+                    width={200}
+                    height={200}
+                    src={card.imageUrl}
+                    alt={card.altText}
+                    className="max-w-full h-40" // Set a fixed height
+                  />
+                  <div className="mt-4 text-center">
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                    <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                      Book Now
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </MainSlider>
+          <div className="animated-line"></div>
+
+          <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+            Repair Service
+          </h5>
+          <MainSlider>
+            {repairData.map((card, index) => (
+              <div key={index} className="mx-2">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <img
+                    width={200}
+                    height={200}
+                    src={card.imageUrl}
+                    alt={card.altText}
+                    className="max-w-full h-40" // Set a fixed height
+                  />
+                  <div className="mt-4 text-center">
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                    <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                      Book Now
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </MainSlider>
+          <div className="animated-line"></div>
+
+          <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+            Cake
+          </h5>
+          <MainSlider>
+            {cakeData.map((card, index) => (
+              <div key={index} className="mx-2">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <img
+                    width={200}
+                    height={200}
+                    src={card.imageUrl}
+                    alt={card.altText}
+                    className="max-w-full h-40" // Set a fixed height
+                  />
+                  <div className="mt-4 text-center">
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                    <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                      Book Now
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </MainSlider>
+          <div className="animated-line"></div>
+
+          <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+            Travels
+          </h5>
+          <MainSlider>
+            {travelData.map((card, index) => (
+              <div key={index} className="mx-2">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <img
+                    width={200}
+                    height={200}
+                    src={card.imageUrl}
+                    alt={card.altText}
+                    className="max-w-full h-40" // Set a fixed height
+                  />
+                  <div className="mt-4 text-center">
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                    <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                      Book Now
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </MainSlider>
+          <div className="animated-line"></div>
+
+          <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+            Sweets
+          </h5>
+          <MainSlider>
+            {sweetsData.map((card, index) => (
+              <div key={index} className="mx-2">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <img
+                    width={200}
+                    height={200}
+                    src={card.imageUrl}
+                    alt={card.altText}
+                    className="max-w-full h-40" // Set a fixed height
+                  />
+                  <div className="mt-4 text-center">
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                    <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
+                      Book Now
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </MainSlider>
+          <div className="animated-line"></div>
+
+          <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
+            Namkeens
+          </h5>
+          <MainSlider>
+            {namkeenData.map((card, index) => (
+              <div key={index} className="mx-2">
+                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -345,207 +584,7 @@ function Home() {
             ))}
           </MainSlider>
         </div>
-
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Saloon Service
-        </h5>
-        <MainSlider>
-          {saloonData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Restaurant Service
-        </h5>
-        <MainSlider>
-          {restaurantData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Repair Service
-        </h5>
-        <MainSlider>
-          {repairData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Cake
-        </h5>
-        <MainSlider>
-          {cakeData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Travels
-        </h5>
-        <MainSlider>
-          {travelData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Sweets
-        </h5>
-        <MainSlider>
-          {sweetsData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-        <div className="animated-line"></div>
-
-        <h5 className="text-3xl text-center mt-5 mb-5 font-bold tracking-tight text-gray-900 dark:text-white">
-          Namkeens
-        </h5>
-        <MainSlider>
-          {namkeenData.map((card, index) => (
-            <div key={index} className="mx-2">
-              <Card className="w-80 p-2 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
-                <img
-                  width={200}
-                  height={200}
-                  src={card.imageUrl}
-                  alt={card.altText}
-                  className="max-w-full h-40" // Set a fixed height
-                />
-                <div className="mt-4 text-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                  <Button className="bg-blue-500 h-10 text-white rounded-full hover:bg-blue-700 mt-3 mx-auto">
-                    Book Now
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </MainSlider>
-      </div>
-
       )}
-      
 
       <Footer />
     </>

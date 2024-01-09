@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Contact from "./Contact";
-import Membership from "./Membership"
-import './Dropdown.css'
+import Membership from "./Membership";
+import "./Dropdown.css";
 import About from "./About";
 const Header = () => {
   const [contactModelOpen, setcontactModelOpen] = useState(false);
   const [aboutModelOpen, setAboutModelOpen] = useState(false);
-  const [membershipModelOpen, setMembershipModelOpen] = useState(false)
+  const [membershipModelOpen, setMembershipModelOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,15 +16,15 @@ const Header = () => {
     setMobileMenuOpen(false);
   };
 
-  const handleContactModel = ()=>{
-        setcontactModelOpen(true)
-  }
-  const handleMembershipModel = ()=>{
-    setMembershipModelOpen(true)
-}
-const handleAboutModel = ()=>{
-  setAboutModelOpen(true)
-}
+  const handleContactModel = () => {
+    setcontactModelOpen(true);
+  };
+  const handleMembershipModel = () => {
+    setMembershipModelOpen(true);
+  };
+  const handleAboutModel = () => {
+    setAboutModelOpen(true);
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -59,7 +59,8 @@ const handleAboutModel = ()=>{
             : "bg-purple-400 fixed top-0 left-0 right-0 z-50"
         }`}
         style={{
-          background: 'linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+          background:
+            "linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)",
           /* background: "#fef9c7", */
           maxHeight: "80px",
         }}
@@ -125,65 +126,68 @@ const handleAboutModel = ()=>{
             className={`flex items-center  justify-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
               mobileMenuOpen ? "block bg-white" : "hidden"
             }`}
-            style={{ fontSize: "20px",
-            color:'brown'
-          }}
+            style={{ fontSize: "20px", color: "brown" }}
           >
-            <ul className="flex flex-col items-center gap-5 space-y-1 md:flex-row md:space-x-4 md:space-y-0 ">
+            <ul className="flex flex-col items-center gap-[-rem] space-y-1 md:flex-row md:space-x-4 md:space-y-0 ">
               <button
                 className=""
                 style={{ fontWeight: "bold" }}
-                onClick={()=>{ handleMembershipModel(); handleButtonClick(); }}
+                onClick={() => {
+                  handleMembershipModel();
+                  handleButtonClick();
+                }}
               >
                 Membership
               </button>
               <div className="dropdown-container">
-      <button
-        className="dropdown-button"
-        style={{ fontWeight: "bold" }}
-        onClick={toggleProductDropdown}
-        onBlur={closeProductDropdown} // Close dropdown when focus is lost
-      >
-        Products
-      </button>
+                <button
+                  className="dropdown-button"
+                  style={{ fontWeight: "bold" }}
+                  onClick={toggleProductDropdown}
+                  onBlur={closeProductDropdown} // Close dropdown when focus is lost
+                >
+                  Products
+                </button>
 
-      {isProductDropdownOpen && (
-        <div className="dropdown-content">
-          
-          <Link to="/products/category1">Tiffin Service</Link>
-          <Link to="/products/category2">Saloon Service</Link>
-          <Link to="/products/category3">Restaurant Service</Link>
-          <Link to="/products/category1">Repair Service</Link>
-          <Link to="/products/category2">Cake</Link>
-          <Link to="/products/category3">Travels</Link>
-          <Link to="/products/category1">Sweets</Link>
-          <Link to="/products/category2">Namkeen</Link>
-          
-        </div>
-      )}
-    </div>
+                {isProductDropdownOpen && (
+                 <div style={{width:"250px"}} className="dropdown-content ml-[-3rem] flex flex-wrap ">
+                 <Link to="/products/category1">Tiffin Service</Link>
+                 <Link to="/products/category2">Saloon Service</Link>
+                 <Link to="/products/category3">Restaurant Service</Link>
+                 <Link to="/products/category1">Repair Service</Link>
+                 <Link to="/products/category2">Cake Service</Link>
+                 <Link to="/products/category3">Travels Service</Link>
+                 <Link to="/products/category1">Sweets Service</Link>
+                 <Link to="/products/category2">Namkeen Service</Link>
+               </div>
+               
+                )}
+              </div>
 
               <button
                 className=""
                 style={{ fontWeight: "bold" }}
-                onClick={()=> {handleContactModel() ; handleButtonClick(); }}
+                onClick={() => {
+                  handleContactModel();
+                  handleButtonClick();
+                }}
               >
                 Contact US
               </button>
 
               <button
                 className=""
-                style={{ fontWeight: "bold" }}
-                onClick={()=>{ handleAboutModel(); handleButtonClick(); }}
+                style={{ fontWeight: "bold" ,padding:"15px"}}
+                onClick={() => {
+                  handleAboutModel();
+                  handleButtonClick();
+                }}
               >
                 About US
               </button>
             </ul>
             <ul className="flex flex-col items-end md:flex-row md:space-x-4 absolute md:top-2 right-5 md:m-4 m-2rem top-3.5rem">
-              <Link
-                to="/"
-                className=" font-bold rounded-full bg-gray-300 p-2"
-              >
+              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -197,10 +201,7 @@ const handleAboutModel = ()=>{
                   />
                 </svg>
               </Link>
-              <Link
-                to="/"
-                className=" font-bold rounded-full bg-gray-300 p-2"
-              >
+              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -211,10 +212,7 @@ const handleAboutModel = ()=>{
                 </svg>
               </Link>
 
-              <Link
-                to="/"
-                className=" font-bold rounded-full bg-gray-300 p-2"
-              >
+              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -225,10 +223,7 @@ const handleAboutModel = ()=>{
                 </svg>
               </Link>
 
-              <Link
-                to="/"
-                className=" font-bold rounded-full bg-gray-300 p-2"
-              >
+              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -239,10 +234,7 @@ const handleAboutModel = ()=>{
                 </svg>
               </Link>
 
-              <Link
-                to="/"
-                className=" font-bold rounded-full bg-gray-300 p-2"
-              >
+              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -261,22 +253,16 @@ const handleAboutModel = ()=>{
         style={{
           paddingTop: navbar ? "20px" : "0",
         }}
-      >
-
-      </div>
+      ></div>
       <Contact
         isOpen={contactModelOpen}
-        onClose={()=> setcontactModelOpen(false)}
+        onClose={() => setcontactModelOpen(false)}
       />
-        <Membership
+      <Membership
         isOpen={membershipModelOpen}
-        onClose={()=> setMembershipModelOpen(false)}
+        onClose={() => setMembershipModelOpen(false)}
       />
-      <About
-        isOpen={aboutModelOpen}
-        onClose={()=> setAboutModelOpen(false)}
-      />
-      
+      <About isOpen={aboutModelOpen} onClose={() => setAboutModelOpen(false)} />
     </div>
   );
 };
