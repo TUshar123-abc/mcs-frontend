@@ -313,11 +313,11 @@ function Home() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000, // Slide transition duration in milliseconds
+    speed: 3000, // Slide transition duration in milliseconds
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // Autoplay interval in milliseconds
+    autoplaySpeed: 3000, // Autoplay interval in milliseconds
   };
   return (
     <>
@@ -327,24 +327,24 @@ function Home() {
       <div >
         <Slider {...settings} className="rounded-xl mt-[5.5rem] mb-0 mr-5 ml-5">
           <div>
-            <img src={repair} alt="image 1" className=" w-auto object-cover" />
+            <img src={repair} alt="rep" className=" w-auto object-cover" />
           </div>
           <div>
             <img
               src={restaurant}
-              alt="image 2"
+              alt="res"
               className=" w-full object-cover"
             />
           </div>
           <div>
-            <img src={tiffin} alt="image 3" className=" w-auto object-cover" />
+            <img src={tiffin} alt="tif" className=" w-auto object-cover" />
           </div>
 
           <div>
-            <img src={saloon} alt="image 3" className=" w-auto object-cover" />
+            <img src={saloon} alt="sal" className=" w-auto object-cover" />
           </div>
           <div>
-            <img src={Travels} alt="image 3" className=" w-auto object-cover" />
+            <img src={Travels} alt="tra" className=" w-auto object-cover" />
           </div>
         </Slider>
       </div>
