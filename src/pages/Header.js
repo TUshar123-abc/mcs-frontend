@@ -5,12 +5,14 @@ import Contact from "./Contact";
 import Membership from "./Membership";
 import "./Dropdown.css";
 import About from "./About";
+import "./Header.css";
 const Header = () => {
   const [contactModelOpen, setcontactModelOpen] = useState(false);
   const [aboutModelOpen, setAboutModelOpen] = useState(false);
   const [membershipModelOpen, setMembershipModelOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoverColor, setHoverColor] = useState("");
 
   const handleButtonClick = () => {
     setMobileMenuOpen(false);
@@ -123,15 +125,15 @@ const Header = () => {
             </div>
           </div>
           <div
-            className={`flex items-center  justify-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-              mobileMenuOpen ? "block bg-white" : "hidden"
-            }`}
-            style={{ fontSize: "20px", color: "brown" }}
-          >
+  className={`flex items-center justify-center pb-6 md:block md:pb-0 md:mt-0 ${
+    mobileMenuOpen ? "block bg-white" : "hidden"
+  }`}
+  style={{ fontSize: "20px", color: "brown", marginTop: "-15px" }}
+>
             <ul className="flex flex-col items-center gap-[-rem] space-y-1 md:flex-row md:space-x-4 md:space-y-0 ">
               <button
                 className=""
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: "bold", marginTop: mobileMenuOpen ? "90px" : "0", }}
                 onClick={() => {
                   handleMembershipModel();
                   handleButtonClick();
@@ -176,18 +178,36 @@ const Header = () => {
               </button>
 
               <button
-                className=""
-                style={{ fontWeight: "bold" ,padding:"15px"}}
-                onClick={() => {
-                  handleAboutModel();
-                  handleButtonClick();
-                }}
-              >
-                About US
-              </button>
+      className=""
+      style={{
+        fontWeight: "bold",
+        padding: "20px",
+        marginBottom: mobileMenuOpen ? "40px" : "0",
+        backgroundColor: hoverColor || (mobileMenuOpen ? "" : ""), // Use hoverColor if defined, otherwise use "blue" in mobileMenuOpen state
+      }}
+      onClick={() => {
+        handleAboutModel();
+        handleButtonClick();
+      }}
+      onTouchStart={() => setHoverColor("#4299e1")}
+      onTouchEnd={() => setHoverColor("")}
+      onMouseEnter={() => setHoverColor(mobileMenuOpen ? "#4299e1" : "")}
+      onMouseLeave={() => setHoverColor("")}
+    >
+      About Us
+    </button>
             </ul>
-            <ul className="flex flex-col items-end md:flex-row md:space-x-4 absolute md:top-2 right-5 md:m-4 m-2rem top-3.5rem">
-              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
+            <ul
+  className="flex flex-col items-end md:flex-row md:space-x-4 absolute md:top-2 right-5 md:m-4 m-2rem top-3.5rem"
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
+    marginTop: "100px",
+    marginRight: "5px", // Adjust as needed
+  }}
+>
+              <Link to="/" className=" font-bold rounded-full bg-transparent mb-3 p-2 border border-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -201,7 +221,7 @@ const Header = () => {
                   />
                 </svg>
               </Link>
-              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
+              <Link to="/" className=" font-bold rounded-full mb-3 bg-transparent p-2 border border-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -212,7 +232,7 @@ const Header = () => {
                 </svg>
               </Link>
 
-              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
+              <Link to="/" className=" font-bold rounded-full mb-3 bg-transparent p-2 border border-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -223,7 +243,7 @@ const Header = () => {
                 </svg>
               </Link>
 
-              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
+              <Link to="/" className=" font-bold rounded-full mb-3 bg-transparent p-2 border border-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -234,7 +254,7 @@ const Header = () => {
                 </svg>
               </Link>
 
-              <Link to="/" className=" font-bold rounded-full bg-gray-300 p-2">
+              <Link to="/" className=" font-bold rounded-full mb-3 bg-transparent p-2 border border-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
