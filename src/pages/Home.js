@@ -224,7 +224,7 @@ const travelData = [
   },
   {
     imageUrl:
-      "https://cdn.pixabay.com/photo/2017/05/10/13/39/ladakh-2300904_640.jpg",
+      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgrandholidayparkvacation.com%2Fblog%2Fexplore-and-fall-in-love-with-the-beauty-of-ladakh-india-13&psig=AOvVaw0ooiggKTb_Fj_FXbaUCNlU&ust=1704967686784000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJC92d7J0oMDFQAAAAAdAAAAABAN",
     altText: "Card 5",
     description: "ladakh trip starting @6666/-",
   },
