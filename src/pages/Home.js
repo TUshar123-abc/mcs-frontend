@@ -365,7 +365,7 @@ function Home() {
             <MainSlider>
               {tiffinData.map((card, index) => (
                 <div key={index} className="mx-2">
-                  <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                  <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                     <img
                       width={200}
                       height={100}
@@ -395,7 +395,7 @@ function Home() {
           <MainSlider>
             {saloonData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 my-4 md:ml-60 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -423,7 +423,7 @@ function Home() {
           <MainSlider>
             {restaurantData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -451,7 +451,7 @@ function Home() {
           <MainSlider>
             {repairData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -479,7 +479,7 @@ function Home() {
           <MainSlider>
             {cakeData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -507,7 +507,7 @@ function Home() {
           <MainSlider>
             {travelData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -535,7 +535,7 @@ function Home() {
           <MainSlider>
             {sweetsData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
@@ -563,7 +563,7 @@ function Home() {
           <MainSlider>
             {namkeenData.map((card, index) => (
               <div key={index} className="mx-2">
-                <Card className="w-80 p-2 ml-7 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
+                <Card className="w-80 p-2 ml-7 md:ml-60 my-4 flex flex-col flex-1 transition duration-300 ease-in-out hover:scale-110 items-center">
                   <img
                     width={200}
                     height={200}
